@@ -10,7 +10,7 @@ function ConvertHandler() {
   };
 
   this.getUnit = function (input) {
-    if (!/[^\d\.\/ ]+/i.test(input)) return { Error: "Invalid input unit" };
+    if (!/[^\d\.\/ ]+/i.test(input)) return { error: "Invalid input unit" };
     const units = {
       gal: "gal",
       lbs: "lbs",
@@ -23,7 +23,7 @@ function ConvertHandler() {
     const idx = input.match(/[^\d\.\/ ]+/i)["index"];
     const unit = input.substr(idx).toLowerCase();
 
-    if (!units[unit]) return { Error: "Invalid input unit" };
+    if (!units[unit]) return { error: "Invalid input unit" };
 
     return units[unit];
   };
