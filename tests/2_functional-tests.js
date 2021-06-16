@@ -58,18 +58,4 @@ suite("Functional Tests", function () {
         done();
       });
   });
-  test("General", (done) => {
-    chai
-      .request(server)
-      .get("/api/convert?input=2mi")
-      .end((err, res) => {
-        const data = res.body;
-        assert.equal(data.initNum, 2);
-        assert.equal(data.initUnit, "mi");
-        assert.approximately(data.returnNum, 3.21868, 0.001);
-        assert.equal(data.returnUnit, "km", "returnUnit did not match");
-        assert.equal(data.string, "2 miles converts to 3.21868 kilometers");
-        done();
-      });
-  });
 });
