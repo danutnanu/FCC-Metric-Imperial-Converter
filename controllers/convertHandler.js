@@ -5,7 +5,7 @@ function ConvertHandler() {
 
     const idx = input.match(/[^\d\.\/ ]/i)["index"];
     if (idx === 0) return 1;
-    if (input.match(/\//g)?.length > 1) return { error: "Invalid number" };
+    if (input.match(/\//g) && input.match(/\//g).length > 1) return { error: "Invalid number" };
     return eval(input.substr(0, idx));
   };
 
